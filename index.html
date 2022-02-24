@@ -16,18 +16,41 @@
         <!-- nav bar for high score link and timer -->
         <nav>
             <ul>
-                <li class="nav">View High Scores</li>
-                <li class="nav">Time:</li>
+                <a href="highscores.html"><li class="nav" id="high-scores">View High Scores</li></a>
+                <li class="nav" id="timer">Time:</li>
             </ul>
         </nav>
     </header>
 
-    <h1>Code Quiz</h1>
-    <p>Try answering the following code-related questions within the time limit.
-    <br /> Keep in mind that wrong answers will penalize your score/time by 10 seconds!</p>
+    <div class="start-info">
+        <h1>Code Quiz</h1>
+        <p>Try answering the following code-related questions within the time limit.
+        <br /> Keep in mind that wrong answers will penalize your score/time by 10 seconds!</p>
 
-    <button type="button" class="btn btn-info">Start Quiz</button>
+        <button type="button" class="btn btn-info">Start Quiz</button>
+    </div>
 
+    <!-- placeholder for questions/choices -->
+    <div class="hide" id="questions">
+        <!-- empty h2 element for question titles -->
+        <h2 id="question-prompt"></h2>
+        <!-- empty div for question choices -->
+        <div id="question-choices"></div>
+    </div>
+
+    <!-- placeholder for high score inputs -->
+    <div class="hide" id="highscore-input">
+        <h2>
+            All done! <br />
+            <!-- placeholder span tag for final score -->
+            You're final score is: <span id="final-score"></span>
+        </h2>
+        <p>
+            Enter your initials:
+            <input type="text" id="initials" name="initials" />
+            <button id="submit" class="btn btn-success">Submit</button>
+        </p>
+    </div>
     <script src="assets/js/script.js"></script>
 </body>
 
