@@ -1,3 +1,10 @@
+// pull empty elements from HTML
+var questionsContainerEl = document.querySelector("#questions");
+var promptEl = document.querySelector("#question-prompt");
+var choicesEl = document.querySelector("#question-choices");
+var finalScoreEl = document.querySelector("#final-score");
+
+// array for questions
 var questions = [
     {
         prompt: "Which is NOT a data type in JavaScript?",
@@ -25,3 +32,10 @@ var questions = [
         answer: "False"
     }
 ];
+
+// pseudocode:
+// 1. pull empty elements into js file using DOM
+// 2. create elements for questions to be pushed to the HTML
+// 3. use a for loop to loop through questions array and display them on the page
+// 4. validate user's answer by comparing it to the correct answer
+// 5. set up a countdown timer and display it on the page when the start button is clicked
