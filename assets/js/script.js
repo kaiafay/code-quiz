@@ -3,6 +3,12 @@ var questionsContainerEl = document.querySelector("#questions");
 var promptEl = document.querySelector("#question-prompt");
 var choicesEl = document.querySelector("#question-choices");
 var finalScoreEl = document.querySelector("#final-score");
+var timerEl = document.querySelector("#countdown");
+
+// variables for quiz 
+var currentQuestion = 0;
+var time = 100;
+var timer;
 
 // array for questions
 var questions = [
@@ -33,8 +39,35 @@ var questions = [
     }
 ];
 
+var startQuiz = function() {
+    // hide start info
+    var startInfoEl = document.querySelector(".start-info");
+    startInfoEl.setAttribute("class", "hide");
+
+    // display question container
+    questionsContainerEl.removeAttribute("class");
+
+    // start countdown timer
+    timer = setInterval(clock, 1000);
+
+    // display timer
+    timerEl.textContent = time;
+
+    displayQuestion;
+}
+
+var clock = function() {
+    // decrement time to mimick countdown
+    time--;
+    timerEl.textContent = time;
+
+    // check to see if time runs out
+    if (time <= 0) {
+        endQuiz;
+    }
+};
+
 // pseudocode:
-// 1. pull empty elements into js file using DOM
 // 2. create elements for questions to be pushed to the HTML
 // 3. use a for loop to loop through questions array and display them on the page
 // 4. validate user's answer by comparing it to the correct answer
