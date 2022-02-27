@@ -1,3 +1,14 @@
+ul {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+
+.noDecoration {
+  text-decoration: none;
+  color: rgb(211, 119, 211);
+}
+
 .hide {
   display: none;
 }
