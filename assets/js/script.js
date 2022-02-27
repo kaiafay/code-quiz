@@ -75,7 +75,7 @@ var displayQuestion = function() {
     questionIndex.choices.forEach(function(choices, i) {
         // create a button for each choice
         var choiceBtn = document.createElement("button");
-        choiceBtn.setAttribute("class", "choice")
+        choiceBtn.setAttribute("class", "choice btn btn-outline-primary")
         choiceBtn.setAttribute("value", choices);
 
         choiceBtn.textContent = i + 1 + ". " + choices;
