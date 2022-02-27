@@ -7,6 +7,8 @@ var timerEl = document.querySelector("#countdown");
 var feedbackEl = document.getElementById("right-wrong");
 var highScoreScreenEl = document.getElementById("highscore-input");
 var initialsEl = document.getElementById("initials");
+var startBtn = document.querySelector("#start");
+var submitBtn = document.querySelector("#submit");
 
 // variables for quiz 
 var currentQuestion = 0;
@@ -166,3 +168,9 @@ var saveScore = function() {
         window.location.href = "highscores.html";
     };
 };
+
+// click submit button to save score
+submitBtn.onclick = saveScore;
+
+// click start button to start quiz
+startBtn.onclick = startQuiz;
