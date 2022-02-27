@@ -4,8 +4,9 @@ var promptEl = document.querySelector("#question-prompt");
 var choicesEl = document.querySelector("#question-choices");
 var finalScoreEl = document.querySelector("#final-score");
 var timerEl = document.querySelector("#countdown");
-var feedbackEl = document.getElementById("right-wrong")
+var feedbackEl = document.getElementById("right-wrong");
 var highScoreScreenEl = document.getElementById("highscore-input");
+var initialsEl = document.getElementById("initials");
 
 // variables for quiz 
 var currentQuestion = 0;
@@ -142,3 +143,26 @@ var endQuiz = function() {
     finalScoreEl.textContent = time;
 };
 
+var saveScore = function() {
+    // get initials from text box
+    var initials = initialsEl.value.trim();
+
+    // check to see if value is empty
+    if (initials !== "") {
+        // retrieve scores from localstorage
+        var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+
+        // create score object for current user
+        var userScore = {
+            score: time,
+            initials: initials
+        };
+
+        // save to localstorage
+        highscores.push(userScore);
+        window.localStorage.setItem("highscores", JSON.stringify(highscores));
+
+        // direct user to high scores page
+        window.location.href = "highscores.html";
+    };
+};
