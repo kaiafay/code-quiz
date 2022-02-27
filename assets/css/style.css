@@ -9,6 +9,13 @@ ul {
   color: rgb(211, 119, 211);
 }
 
+.start-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2%;
+}
+
 .hide {
   display: none;
 }
