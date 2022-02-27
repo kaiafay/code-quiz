@@ -66,7 +66,7 @@ var displayQuestion = function() {
     var questionIndex = questions[currentQuestion];
 
     // display question
-    promptEl.textContent = questionIndex.title;
+    promptEl.textContent = questionIndex.prompt;
 
     // clear previous question choices
     choicesEl.innerHTML = "";
