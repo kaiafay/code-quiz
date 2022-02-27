@@ -76,9 +76,9 @@ var displayQuestion = function() {
         // create a button for each choice
         var choiceBtn = document.createElement("button");
         choiceBtn.setAttribute("class", "choice")
-        choiceBtn.setAttribute("value", choice);
+        choiceBtn.setAttribute("value", choices);
 
-        choiceBtn.textContent = i + 1 + ". " + choice;
+        choiceBtn.textContent = i + 1 + ". " + choices;
 
         // attach click event listener to choices
         choiceBtn.onclick = choiceClick;
@@ -112,12 +112,13 @@ var choiceClick = function() {
     // move onto next question
     currentQuestion++;
 
-    // check to see if questions are done
-    if (currentQuestion === questions.length) {
-        endQuiz();
+    setTimeout(() => {
+        if (currentQuestion === questions.length) {
+            endQuiz();
     } else {
         displayQuestion();
     };
+    }, 1000);
 };
 
 var clock = function() {
