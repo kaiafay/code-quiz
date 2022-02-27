@@ -4,6 +4,7 @@ var promptEl = document.querySelector("#question-prompt");
 var choicesEl = document.querySelector("#question-choices");
 var finalScoreEl = document.querySelector("#final-score");
 var timerEl = document.querySelector("#countdown");
+var feedbackEl = document.getElementById("right-wrong")
 
 // variables for quiz 
 var currentQuestion = 0;
@@ -83,6 +84,38 @@ var displayQuestion = function() {
     });
 };
 
+var choiceClick = function() {
+    // check if answer is wrong
+    if (this.value !== questions[currentQuestion].answer) {
+        // subtract time off timer
+        time -= 10;
+
+        // display updated time 
+        timerEl.textContent = time;
+
+        // display feedback
+        feedbackEl.textContent = "Wrong!";
+    } else {
+        feedbackEl.textContent = "Correct!";
+    };
+
+    // flash feedback on page
+    feedbackEl.setAttribute("class", "feedback");
+    setTimeout(function() {
+        feedbackEl.setAttribute("class", "feedback hide");
+    }, 1000);
+
+    // move onto next question
+    currentQuestion++;
+
+    // check to see if questions are done
+    if (currentQuestion === questions.length) {
+        endQuiz();
+    } else {
+        displayQuestion();
+    };
+};
+
 var clock = function() {
     // decrement time to mimick countdown
     time--;
@@ -93,9 +126,3 @@ var clock = function() {
         endQuiz();
     }
 };
-
-// pseudocode:
-// 2. create elements for questions to be pushed to the HTML
-// 3. use a for loop to loop through questions array and display them on the page
-// 4. validate user's answer by comparing it to the correct answer
-// 5. set up a countdown timer and display it on the page when the start button is clicked
