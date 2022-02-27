@@ -53,8 +53,35 @@ var startQuiz = function() {
     // display timer
     timerEl.textContent = time;
 
-    displayQuestion;
+    displayQuestion();
 }
+
+var displayQuestion = function() {
+    // track current question
+    var questionIndex = questions[currentQuestion];
+
+    // display question
+    promptEl.textContent = questionIndex.title;
+
+    // clear previous question choices
+    choicesEl.innerHTML = "";
+
+    // for each loop to loop through the choices
+    questionIndex.choices.forEach(function(choices, i) {
+        // create a button for each choice
+        var choiceBtn = document.createElement("button");
+        choiceBtn.setAttribute("class", "choice")
+        choiceBtn.setAttribute("value", choice);
+
+        choiceBtn.textContent = i + 1 + ". " + choice;
+
+        // attach click event listener to choices
+        choiceBtn.onclick = choiceClick;
+
+        // display on page
+        choicesEl.appendChild(choiceBtn);
+    });
+};
 
 var clock = function() {
     // decrement time to mimick countdown
@@ -63,7 +90,7 @@ var clock = function() {
 
     // check to see if time runs out
     if (time <= 0) {
-        endQuiz;
+        endQuiz();
     }
 };
 
