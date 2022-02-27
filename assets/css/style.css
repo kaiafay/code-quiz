@@ -1,32 +1,57 @@
-ul {
+/* make nav bar flex and correct layout */
+/* style "go back" button on high scores page */
+ul,
+#back-btn {
   display: flex;
   justify-content: space-between;
   padding: 1rem 2rem;
 }
 
+/* remove underline from "view high scores" and "go back" button and change font color */
 .noDecoration {
   text-decoration: none;
   color: rgb(211, 119, 211);
 }
 
+/* align starter info in the center of the page */
 .start-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
   padding-top: 2%;
 }
 
+/* align questions in the center of the page */
 #question-prompt {
   text-align: center;
   padding-top: 2%;
 }
 
+/* align feedback in the center of the page and adjust font size */
 #right-wrong {
   text-align: center;
   font-size: 20px;
   padding-top: 1rem;
 }
 
+/* align high score info in the center of the page */
+#highscore-input {
+  text-align: center;
+  padding-top: 2%;
+}
+
+/* adjust "submit" button so it has space at the top */
+#submit {
+  margin-top: 1%;
+}
+
+/* style high scores page */
+#highscores {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2%;
+}
+
+/* hide HTML with the class of 'hide' */
 .hide {
   display: none;
 }
