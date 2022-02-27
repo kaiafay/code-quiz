@@ -5,6 +5,7 @@ var choicesEl = document.querySelector("#question-choices");
 var finalScoreEl = document.querySelector("#final-score");
 var timerEl = document.querySelector("#countdown");
 var feedbackEl = document.getElementById("right-wrong")
+var highScoreScreenEl = document.getElementById("highscore-input");
 
 // variables for quiz 
 var currentQuestion = 0;
@@ -126,3 +127,18 @@ var clock = function() {
         endQuiz();
     }
 };
+
+var endQuiz = function() {
+    // stop countdown timer
+    clearInterval(timer);
+
+    // hide questions
+    questionsContainerEl.setAttribute("class", "hide");
+
+    // display high score page
+    highScoreScreenEl.removeAttribute("class");
+
+    // display final score
+    finalScoreEl.textContent = time;
+};
+
