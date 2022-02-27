@@ -1,3 +1,5 @@
+var clearBtn = document.getElementById("clear");
+
 var getScores = function() {
     // get scores from localstorage
     var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
@@ -17,3 +19,15 @@ var getScores = function() {
         list.appendChild(listItem);
     });
 };
+
+// clear high scores list
+var clearScores = function() {
+    window.localStorage.removeItem("highscores");
+    window.location.reload();
+}
+
+// clear scores when user clicks on button
+clearBtn.onclick = clearScores;
+
+// run getScores function when page loads
+getScores();
