@@ -1,4 +1,5 @@
 # Code Quiz
+## Description
 A timed quiz that tests your JavaScript knowledge and stores high scores. <br />
 Built With:
 - HTML
